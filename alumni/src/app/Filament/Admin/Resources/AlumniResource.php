@@ -12,6 +12,7 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Model;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Support\Facades\Blade;
+use Illuminate\Support\Collection;
 
 class AlumniResource extends Resource
 {
@@ -51,6 +52,7 @@ class AlumniResource extends Resource
                 Tables\Columns\TextColumn::make('no_hp')->searchable(),
                 Tables\Columns\TextColumn::make('pekerjaan')->searchable(),
                 Tables\Columns\TextColumn::make('instansi')->searchable(),
+                Tables\Columns\TextColumn::make('alamat')->searchable(),
                 Tables\Columns\ImageColumn::make('image'),
                 Tables\Columns\TextColumn::make('created_at')->dateTime()->sortable()->toggleable(isToggledHiddenByDefault: true),
                 Tables\Columns\TextColumn::make('updated_at')->dateTime()->sortable()->toggleable(isToggledHiddenByDefault: true),
@@ -76,6 +78,21 @@ class AlumniResource extends Resource
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
                     Tables\Actions\DeleteBulkAction::make(),
+
+                    Tables\Actions\BulkAction::make('Export pdf')
+                        ->icon('heroicon-m-arrow-down-tray')
+                        ->openUrlInNewTab()
+                        ->color('success')
+                        ->deselectRecordsAfterCompletion()
+                        ->action(function (Collection $records) {
+                            return response()->streamDownload(function () use ($records) {
+                                echo Pdf::loadHtml(
+                                    Blade::render('pdf-bulk', [
+                                        'records' => $records
+                                    ])
+                                )->stream();
+                            }, 'Daftar Alumni.pdf');
+                        }),
                 ]),
             ]);
     }

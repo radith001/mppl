@@ -42,13 +42,13 @@ class DatabaseSeeder extends Seeder
 
         // Buat user mahasiswa jika belum ada
         $mahasiswa = User::firstOrCreate(
-            ['email' => 'mahasiswa@demo.com'],
+            ['email' => 'alumni@email.com'],
             [
-                'name' => 'Mahasiswa Demo',
-                'password' => Hash::make('password'),
+                'name' => 'alumni',
+                'password' => Hash::make('alumni'),
             ]
         );
-        $mahasiswa->assignRole('mahasiswa');
+        $mahasiswa->assignRole('alumni');
 
         $this->call(AlumniSeeder::class);
     }

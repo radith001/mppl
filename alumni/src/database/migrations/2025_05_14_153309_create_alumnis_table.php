@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('alumnis', function (Blueprint $table) {
             $table->id();
             $table->string('nama');
-            $table->string('nim')->unique();
+            $table->string('nim');
             $table->string('prodi');
             $table->year('tahun_masuk');
             $table->year('tahun_lulus')->nullable();
@@ -23,7 +23,7 @@ return new class extends Migration
             $table->string('no_hp')->nullable();
             $table->string('pekerjaan')->nullable();
             $table->string('instansi')->nullable();
-            $table->text('alamat')->nullable();
+            $table->string('alamat')->nullable();
             $table->string('image')->nullable(); // untuk simpan path/URL foto
             $table->timestamps();
         });
