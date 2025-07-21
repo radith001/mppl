@@ -60,7 +60,7 @@
                             <div class="row d-flex justify-content-between align-items-center">
                                 <div class="header-info-left">
                                     <ul>
-                                        <li>Phone: +99 (0) 101 0000 88</li>
+                                        <li>Phone: +62 812-1080-1023</li>
                                         <li>Email: metrouniversity@email.com</li>
                                     </ul>
                                 </div>
@@ -191,10 +191,10 @@
                                 </div>
                                 <!-- Footer Social -->
                                 <div class="footer-social ">
-                                    <a href="https://www.facebook.com/sai4ull"><i class="fab fa-facebook-f"></i></a>
+                                    <a href="https://www.facebook.com/radithashometingnewjr"><i class="fab fa-facebook-f"></i></a>
                                     <a href=""><i class="fab fa-twitter"></i></a>
                                     <a href="#"><i class="fas fa-globe"></i></a>
-                                    <a href="#"><i class="fab fa-instagram"></i></a>
+                                    <a href="https://www.instagram.com/radeeettt/"><i class="fab fa-instagram"></i></a>
                                 </div>
                             </div>
                         </div>
